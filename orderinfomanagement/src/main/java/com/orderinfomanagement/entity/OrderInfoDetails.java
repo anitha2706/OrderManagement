@@ -18,7 +18,7 @@ public class OrderInfoDetails{
 	@Column(name = "customer_id")
 	private int customerId;
 	
- 
+    @NotNull(message ="Name Cannot be null")
 	@Column(name = "customer_name")
 	private String customerName;
 	

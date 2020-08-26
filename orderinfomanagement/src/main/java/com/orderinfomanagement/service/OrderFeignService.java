@@ -6,7 +6,6 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.orderinfomanagement.entity.OrderInfoDetails;
 
 
 @FeignClient(name="orderitem")
@@ -14,7 +13,7 @@ import com.orderinfomanagement.entity.OrderInfoDetails;
 public interface OrderFeignService{
 
 	@RequestMapping("/orderitemdetails/{product}")
-	public List<OrderInfoDetails> getProductDetails(String productName);
+	public  void getProductDetails(String productName);
 
 	
 }

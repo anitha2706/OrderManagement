@@ -36,9 +36,7 @@ public class OrderInfoManagementController {
 		if(orderInfoList.isEmpty()) {
 			 throw new OrderNotFoundException("Order Not Found");
 		}
-		else {
 		return orderInfoList;
-		}
 	}
 	
 	@RequestMapping(value ="/orderinfodetails/{customer}", method=RequestMethod.GET)
@@ -51,14 +49,14 @@ public class OrderInfoManagementController {
 	}
 	
 	@RequestMapping(value ="/orderProductitem/{product}", method=RequestMethod.GET)
-	public List<OrderInfoDetails> getProductdetails(@PathVariable("product") String productName){
-		return orderFeignService.getProductDetails(productName);
+	public void getProductdetails(@PathVariable("product") String productName){
+		 orderFeignService.getProductDetails(productName);
 	}
-	@RequestMapping(value= "/mycart/save", method=RequestMethod.POST)
-	public void saveToCart(){
-		OrderInfoDetails o= new OrderInfoDetails(1, "U1","P1","2020/03/05", "gg", "ggg", 100);
-		OrderInfoService.addToCart(o);
-		System.out.println("Created Order Info"+o);
+	@RequestMapping(value= "/mycart/save/{customer}", method=RequestMethod.POST)
+	public void saveToCart(@PathVariable("customer") String customerName){
+		OrderInfoDetails orderInfoDetails= new OrderInfoDetails(1, customerName,"P1","2020/03/05", "gg", "ggg", 100);
+		OrderInfoService.addToCart(orderInfoDetails);
+		System.out.println("Created Order Info"+orderInfoDetails);
 	}
 	
 

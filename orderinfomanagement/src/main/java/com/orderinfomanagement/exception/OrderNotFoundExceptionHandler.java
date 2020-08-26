@@ -1,4 +1,4 @@
-package com.orderinfomanagement.Exception;
+package com.orderinfomanagement.exception;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

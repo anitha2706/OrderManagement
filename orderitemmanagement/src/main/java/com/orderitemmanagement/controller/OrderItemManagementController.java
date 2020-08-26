@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.orderitemmanagement.Exception.ProductNotFoundException;
 import com.orderitemmanagement.entity.OrderItemDetails;
 import com.orderitemmanagement.service.OrderItemService;
 
@@ -24,12 +25,18 @@ public class OrderItemManagementController {
 	@RequestMapping(value= "/orderitem", method=RequestMethod.GET)
 	public List<OrderItemDetails> getAllOrderInfo(){
 		List<OrderItemDetails> orderItemList = orderItemService.getAllOrderItems();
+		if(orderItemList.isEmpty()) {
+			 throw new ProductNotFoundException("Product Not Found");
+		}
 		return orderItemList;
 	}
 	
 	@RequestMapping(value ="/orderitemdetails/{product}", method=RequestMethod.GET)
 	public List<OrderItemDetails> getCustomerOrdersdetails(@PathVariable("product") String productName){
 		List<OrderItemDetails> myProductList = orderItemService.getProductdetails(productName); 
+		if(myProductList.isEmpty()) {
+			 throw new ProductNotFoundException("The Specified Product Order Not Found");
+		}
 		return myProductList;
 	}
 	@RequestMapping(value= "/mycart/save", method=RequestMethod.POST)

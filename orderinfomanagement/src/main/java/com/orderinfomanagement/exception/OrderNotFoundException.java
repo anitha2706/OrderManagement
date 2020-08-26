@@ -1,4 +1,4 @@
-package com.orderinfomanagement.Exception;
+package com.orderinfomanagement.exception;
 
 public class OrderNotFoundException extends RuntimeException{
 	public OrderNotFoundException(String exception) {
