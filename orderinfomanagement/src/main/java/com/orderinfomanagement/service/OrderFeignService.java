@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.orderinfomanagement.entity.OrderInfoDetails;
 
 
-@FeignClient(name="orderitem",url="")
+@FeignClient(name="orderitem")
 @RibbonClient(name="orderitem")
 public interface OrderFeignService{
 
