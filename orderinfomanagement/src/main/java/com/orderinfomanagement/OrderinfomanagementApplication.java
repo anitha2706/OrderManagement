@@ -15,7 +15,4 @@ public class OrderinfomanagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OrderinfomanagementApplication.class, args);
 	}
-public RestTemplate restTemplate(RestTemplateBuilder builder) {
-	return builder.build();
-}
 }

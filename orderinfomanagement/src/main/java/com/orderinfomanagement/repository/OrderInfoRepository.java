@@ -10,7 +10,7 @@ import com.orderinfomanagement.entity.OrderInfoDetails;
 
 
 public interface OrderInfoRepository extends JpaRepository<OrderInfoDetails, String>{
-	
+
 	List<OrderInfoDetails> findByCustomerName(String customerName);
-	
+
 }

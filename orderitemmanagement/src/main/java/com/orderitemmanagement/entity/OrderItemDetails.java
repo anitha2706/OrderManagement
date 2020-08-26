@@ -18,7 +18,8 @@ public class OrderItemDetails{
 
 	@Column(name = "product_code")
 	private String productCode;
-	
+
+	@NotNull()
 	@Column(name = "product_name")
 	private String productName;
 
@@ -29,9 +30,13 @@ public class OrderItemDetails{
 
 	}
 	public OrderItemDetails(int productId, String productCode, String productName, int quantity) {
+
 		this.ProductId=productId;
+
 		this.productCode=productCode;
+
 		this.productName=productName;
+
 		this.quantity=quantity;
 	}
 	public int getProductId() {
@@ -65,5 +70,5 @@ public class OrderItemDetails{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 }

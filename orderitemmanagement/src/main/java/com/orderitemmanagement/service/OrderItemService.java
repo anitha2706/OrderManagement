@@ -7,8 +7,6 @@ import com.orderitemmanagement.entity.OrderItemDetails;
 
 public interface OrderItemService{
 
-	
-
 	public List<OrderItemDetails> getAllOrderItems();
 
 	public List<OrderItemDetails> getProductdetails(String productName);

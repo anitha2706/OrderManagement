@@ -10,6 +10,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.NotFound;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name = "orderinfodetails")
 public class OrderInfoDetails{
@@ -17,14 +19,14 @@ public class OrderInfoDetails{
 	@Id
 	@Column(name = "customer_id")
 	private int customerId;
-	
-    @NotNull(message ="Name Cannot be null")
+
+	@NotNull()
 	@Column(name = "customer_name")
 	private String customerName;
-	
+
 	@Column(name = "product_name")
 	private String productName;
-	
+
 	@Column(name = "order_date")
 	private String orderDate;
 
@@ -37,20 +39,20 @@ public class OrderInfoDetails{
 	@Column(name = "total_price")
 	private double totalPrice;
 	public OrderInfoDetails() {
-		
+
 	}
 
-public OrderInfoDetails(int customerId,String customerName,String productName,String orderDate,String orderItems,String shippingAddress,double totalPrice) {
-this.customerId=customerId;
-this.customerName = customerName;
-this.orderDate = orderDate;
-this.orderItems = orderItems;
-this.shippingAddress= shippingAddress;
-this.totalPrice = totalPrice;
-this.productName = productName;
+	public OrderInfoDetails(int customerId,String customerName,String productName,String orderDate,String orderItems,String shippingAddress,double totalPrice) {
+		this.customerId=customerId;
+		this.customerName = customerName;
+		this.orderDate = orderDate;
+		this.orderItems = orderItems;
+		this.shippingAddress= shippingAddress;
+		this.totalPrice = totalPrice;
+		this.productName = productName;
 	}
 
-	
+
 	public int getCustomerId() {
 		return customerId;
 	}
